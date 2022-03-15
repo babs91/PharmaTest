@@ -1,0 +1,70 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-5.0.2-dist/css/bootstrap.min.css' %}"/>
+    <title>Users Orders</title>
+</head>
+<body>
+     <div class="container">
+
+         {% if request.user.is_staff %}
+
+         <div class="ind">
+             <a style="margin-top:20px;" class="btn btn-primary" href="/pharma_app/val">Order Analysis</a>
+             <a style="margin-top:20px;" class="btn btn-primary" href="/pharma_app/entry">entry Page</a>
+         </div><br><br>
+         <div>
+             <div>
+                 <form align="center" style="background-color:rgb(26, 155, 206);color:white; padding-top:10px;padding-bottom:10px;">
+                  {% csrf_token %}
+                  <span>
+                      {{myFilters.form}}
+                  </span>
+                  <span>
+                      <input type="submit" value="Search" name="sub"/>
+                  </span>
+                 </form>
+             </div>
+
+              <table class="table table-condensed">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>ORDER</th>
+                        <th>QTY</th>
+                        <th>AMT</th>
+                        <th>EMAIL</th>
+                        <th>ADDRESS</th>
+                        <th>DATE-TIME</th>
+                    </tr>
+                    {% for o in obj %}
+                    <tr>
+                        <td>{{o.id}}</td>
+                        <td>{{o.customer_name}}</td>
+                        <td>{{o.product_name}}</td>
+                        <td>{{o.Quantity}}</td>
+                        <td>{{o.Amount}}</td>
+                        <td>{{o.Email}}</td>
+                        <td>{{o.customers_address}}</td>
+                        <td>{{o.dateCreated}}</td>
+                    </tr>
+                    {% endfor %}
+
+              </table>
+
+         </div>
+         {% else %}
+
+           <div>Data Pending!!!!</div>
+
+         {% endif %}
+
+
+
+
+     </div>
+
+</body>
+</html>

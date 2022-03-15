@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "pharma_app/product.html" %}
+
+
+    {% block content1 %}
+     <div>
+       <form method="get" class="form form-control">
+
+           <span style="color:orange; font-weight:bold; font-size:13px;">
+               {{myFilters.form}}&nbsp;
+           </span>
+
+           <span>
+               <input style="color:white; font-size:13px;" class="btn btn-warning" type="submit" value="Search" name="btn-4"/>
+           </span>
+
+       </form>
+     </div><br>
+
+    {% endblock %}
+
+
+
+    {% block content %}
+
+    <div class="row">
+
+        <div class="col-5">
+
+            <table class="table table-condensed" style="font-family:Arial; font-size:13px; font-weight:bolder; background-color:orange">
+                <tr style="color:white; background-color:black;">
+                    <th>ID</th>
+                    <th>ITEM</th>
+                    <th>PRICE</th>
+                    <th>PRODUCT.NUMB</th>
+                    <th>ACTION</th>
+                </tr>
+                {% for o in obj4 %}
+                <tr style="color:white">
+                    <td>{{o.id}}</td>
+                    <td>{{o.item}}</td>
+                    <td>{{o.price}}</td>
+                    <td>{{o.product_no}}</td>
+                    <td><a class='btn btn-success' href="/pharma_app/View/{{o.id}}" style="font-weight:bolder; font-size:13px;">INFO</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+        <div class="col-5">
+
+        </div>
+        <div class="col-5">
+
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+
+</body>
+</html>

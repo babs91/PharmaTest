@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body{
+
+            margin: -1px;
+        }
+
+
+
+        .navbar{
+
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            font-family: Arial;
+
+        }
+
+        .navbar a{
+
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            padding-top:30px;
+            padding-left: 10px;
+            padding-bottom: 4px;
+            
+        }
+
+        .navbar:hover{
+
+            background-color: rgb(28, 140, 184);
+        }
+
+        .navbar a:hover{
+
+            color: rgb(187, 184, 184);
+        }
+
+        
+
+        .dropdown{
+
+            overflow: hidden;
+        }
+
+        .btn{
+            
+            float:right;
+            position: relative;
+            border: none;
+            background-color: slateblue;
+            color: white;
+            margin:8px;
+            
+        }
+
+        .drop-content{
+           
+            display: none;
+            z-index: 1;
+            padding: 14px 14px;
+
+        }
+        
+        .drop-content a{
+
+            display: block;
+        }
+
+        .drop-content a:hover{
+
+            background-color: rgb(21, 20, 20);
+            border-radius: 2mm;
+        }
+
+        .dropdown:hover .drop-content{
+
+            display: block;
+            background-color: black;
+        }
+
+        .dropdown:hover .btn{
+
+            background-color: rgb(41, 21, 170);
+        }
+
+        /* bdy */
+
+
+        .bdy{
+
+            margin-top:25px;
+            padding:14px 14px 14px 14px;
+        }
+
+        .sub_bdy{
+
+            background-color: orange;
+            color: white;
+            padding-top:20px;
+            padding-bottom: 50px;
+            padding-left: 90px;
+            padding-right: 90px;
+            font-family: Arial;
+            font-weight: bolder;
+            font-size: 15px;
+            border-radius: 2mm;
+            
+        }
+
+        .bdy1{
+             
+            margin-top:25px;
+            padding:14px 14px 14px 14px;
+            color: orange;
+            font-family: Arial;
+            font-weight: bolder;
+        }
+
+        .bdy2{
+
+           
+            font-family: Arial;
+            font-weight: bolder;
+            color: white;
+            margin-bottom:105px;
+
+        
+            
+        }
+
+        .sub{
+
+            color: orange;
+        }
+
+        .bdy2 a:hover{
+
+            
+            color: white;
+
+
+
+        }
+
+        .sb2{
+
+            background-color: skyblue;
+            padding-top: 18px;
+            padding-left: 10px;
+            padding-right: 7px;
+            padding-bottom: 18px;
+            margin-right: 4px;
+            border-style:solid;
+            border-radius: 2mm;
+            color:blue;
+        }
+
+        .footer{
+
+            background-color: black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+            font-family: Arial;
+        }
+
+
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+
+
+        <div class="navbar">
+
+            <a style="background-color: blue; padding-bottom:8px;padding-top:5px;border-radius:
+            1.5mm;border-style: solid;border-width:medium;"><span>Home Page&nbsp;&nbsp;&nbsp;</span></a>
+            <a href="#">User History</a>
+            <a href="#">About Cloudpharma</a>
+            <span style="padding-left: 198px; font-size:30px;">CloudPharma.com</span>
+
+
+            <div class="dropdown">
+                <button class="btn">Menu</button>
+                 <div class="drop-content">
+                   <a href="/pharma_app/logO">Logout</a>
+                     <a href="mailto:">Email</a>
+                     {% if request.user.is_staff %}
+                   <a href="/pharma_app/val">Admin work Page1</a>
+                   <a href="/pharma_app/entry2">Admin work Page2</a>
+                   <a href="#">Admin work Page3</a>
+                   <a href="#">Admin work Page4</a>
+                     {% else %}
+                      <div>classified</div>
+                     {% endif %}
+                </div>
+                   
+            </div>
+
+        </div><br><br>
+
+        <div class="bdy" align="center">
+
+            <span class="sub_bdy">Online Pharmaceutical Store</span>
+            <div>
+
+            </div>
+
+        </div>
+        <div class="bdy1" align="center">
+
+            <div>Hello &nbsp;{{request.user}}&nbsp; you are welcome to CloudPharma store</div>
+
+            <div class="card card-body">
+
+                {% if obj %}
+
+                     <img style="border-radius:50%; height:120px;" src="{{request.user.customers.profile_Pic.url}}">
+
+                {% endif %}
+
+            </div>
+
+        </div><br><br><br><br><br>
+        <div class="bdy2" align="center">
+            <a href="/pharma_app/itm" style="text-decoration: none;" class="sb2">View Products&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a href="/pharma_app/profl" style="text-decoration: none;" class="sb2">Create Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+
+        <div class="footer"  align="center">
+            CloudPharma.com for you
+        </div>
+
+
+    </div>
+
+</body>
+</html>

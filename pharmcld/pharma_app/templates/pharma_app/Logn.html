@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body{
+
+
+            margin:-18px;
+            font-family: Arial;
+        }
+
+         form{
+
+            margin-top:130px;
+
+
+        }
+
+
+        .inp{
+
+
+            height: 40px;
+            width: 350px;
+            border-style: solid;
+            border-radius: 1mm;
+            font-size:15px;
+            border-color: skyblue;
+
+
+
+        }
+
+        .header{
+
+              background-color:rgb(9, 9, 143);
+              color: skyblue;
+              padding-top: 50px;
+              padding-bottom: 50px;
+              border-style: solid;
+              border-color:rgb(19, 165, 223);
+              font-size: 250%;
+              text-decoration: underline;
+              min-width: 380px;
+
+        }
+
+        .vrf{
+
+            color:skyblue;
+            background-color: rgb(9, 9, 143);
+            padding-left: 140px;
+            padding-right: 140px;
+            padding-top: 50px;
+            padding-bottom:200px;
+            border-radius: 1mm;
+            font-weight: bolder;
+            font-size: 20px;
+            border-style: solid;
+            border-color: skyblue;
+            border-radius: 2mm;
+
+
+        }
+
+         #main{
+
+             background-color: rgb(14, 122, 165);
+             color: white;
+             border-color: white;
+             font-weight: bolder;
+
+
+        }
+
+        .navbar{
+
+             height: 40px;
+             width: 350px;
+             border-style: solid;
+             border-radius: 2mm;
+             font-size:15px;
+             border-color: skyblue;
+             border-color: skyblue;
+             color:white;
+             background-color:rgb(14, 122, 165);
+             font-weight: bolder;
+             font-family: Arial;
+
+
+        }
+
+
+
+       
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div align="center">
+            <div class="header">
+                <div>
+                    CloudPharma.com
+                </div>
+                
+            </div>
+        </div>
+
+                <div align="center">
+                    <div>
+                        <form method="post" action="/pharma_app/logn/">
+                            {% csrf_token %}
+                            <label class="vrf"><i>CloudPharma.com</i></label><br><br>
+                            <input class= "inp" type="text" value="" name="username" placeholder="Enter Username"/><br><br>
+                            <input  class= "inp" type="password" value="" name="password" placeholder="Enter password"/><br><br>
+                            <input id="main" class="inp" type="submit" value="Login" name="btn2"/><br><br>
+                        </form>
+                    </div>
+                    <div align="center" style="color=skyblue">
+                             {% for message in messages %}
+                                   <p style="color:skyblue; font-family:Arial; font-weight:bolder">{{message}}</p>
+                             {% endfor %}
+                     </div>
+
+                </div>
+
+        <div  align="center"><br>
+
+                   <a  href="/pharma_app/regist"><button class="navbar">Visit signup Page</button></a><br><br>
+
+        </div>
+
+
+    </div>
+    
+</body>
+</html>

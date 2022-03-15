@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="container">
+
+
+        <div>
+            <span>Do you want to delete item: {{obj}}</span>
+        </div><br>
+        <div>
+            <form action="/pharma_app/delete/{{obj.id}}" method="post" >
+                {% csrf_token %}
+                 <input type="submit" value="confirmation" name="btn-2"><br><br>
+            </form>
+
+             <a href="/pharma_app/val">No</a><br>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

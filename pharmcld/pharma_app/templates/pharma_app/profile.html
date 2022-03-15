@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-5.0.2-dist/css/bootstrap.min.css' %}"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+
+            margin: -1px;
+        }
+
+        .nav{
+             
+            background-color: black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: bolder;
+            font-family: arial;
+            color:white;
+            font-size:30px;
+            
+
+        }
+
+        .lb{
+           color:white;
+           font-family:Arial;
+           font-weight:bolder;
+           font-size:13px;
+        {
+    </style>
+    <title>Profile</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="nav" >
+            <span>
+                Users Profile settings&nbsp;&nbsp;&nbsp;
+            </span>
+            <span>
+                <a href="/pharma_app" class="btn btn-primary">Home</a>
+            </span>
+        </div>
+        <div class="bdy" align="center">
+
+
+
+                <div class="row">
+
+                    <div class="col-4"><br>
+                        <div class="card card-body">
+
+                            <h5>Profile Pic</h5>
+                            <div>
+                                <img style="border-radius:50%; height:100px;" src="{{request.user.customers.profile_Pic.url}}">
+                            </div>
+
+                        </div>
+
+                    </div>
+                     <div class="col-6">
+
+                         <form  method="post" action="/pharma_app/profl/" enctype="multipart/form-data" class="form-control bg-primary">
+
+                             {% csrf_token %}
+                             <div class="lb">{{form.first_name.label}}</div>
+                             <div>{{form.first_name}}</div><br>
+                             <div class="lb">{{form.Tel.label}}</div>
+                             <div>{{form.Tel}}</div><br>
+                             <div class="lb">{{form.email.label}}</div>
+                             <div>{{form.email}}</div><br>
+                             <div class="lb">{{form.address.label}}</div>
+                             <div>{{form.address}}</div><br>
+                             <div class="lb">{{form.profile_Pic.label}}</div>
+                             <div>{{form.profile_Pic}}</div><br>
+
+                             <div>
+                                <input class="btn btn-success" type="submit" value="Save Profile" name="btn2" />
+                             </div>
+
+                         </form>
+
+                     </div>
+                    <div class="col-2">
+
+                       <h4>First Name must be username</h4>
+                    </div>
+
+
+                </div>
+
+
+        </div><br><br>
+        <div>
+             {{form.errors}}
+
+        </div>
+
+
+        <div>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

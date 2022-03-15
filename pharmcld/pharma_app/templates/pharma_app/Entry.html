@@ -1,0 +1,130 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-5.0.2-dist/css/bootstrap.min.css' %}"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+
+            margin: -1px;
+        }
+
+        .Header{
+
+            background-color:black;
+            font-weight: bold;
+            font-family: Arial;
+            color: white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size:20px;
+
+        }
+
+        .ode{
+
+            font-family: Arial;
+            font-weight: bold;
+            color:white;
+
+
+
+
+        }
+
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="Header" align='center'>
+            <span>
+                Order Entry Page &nbsp;&nbsp;&nbsp;
+            </span>
+            <span>
+                <a href="/pharma_app/val" class="btn btn-info" style="font-family:Arial; color:white">Return</a>
+                <a href="/pharma_app/entry2" class="btn btn-primary">Orders</a>
+            </span>
+        </div><br>
+        <div>
+
+            <div class="col-6">
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
+
+
+             {% if request.user.is_staff %}
+             <div class="col-4">
+
+             </div>
+             <div class="col-5">
+
+                 <form align="center" class="form-control bg-info"  method="post" action="/pharma_app/entry/">
+                    {% csrf_token %}
+                     <div class="ode">
+                       {{obj6.customer_firstname.label}}
+                       {{obj6.customer_firstname}}
+                    </div><br>
+                     <div class="ode">
+                       {{obj6.status.label}}
+                       {{obj6.status}}
+                    </div><br>
+                     <div class="ode">
+                       {{obj6.Item.label}}
+                       {{obj6.Item}}
+                    </div><br>
+                     <div class="ode">
+                       {{obj6.Quantity.label}}
+                       {{obj6.Quantity}}
+                    </div><br>
+                     <div class="ode">
+                       {{obj6.Amount.label}}
+                       {{obj6.Amount}}
+                    </div><br>
+                     <div class="ode">
+                       {{obj6.Phone.label}}
+                       {{obj6.Phone}}
+                    </div><br>
+                     <div class="ode">
+                       {{obj6.customers_address.label}}
+                       {{obj6.customers_address}}
+                    </div><br>
+
+                     <input class="btn btn-success" type="submit" value="POST" name="bto"/>
+                 </form>
+            </div>
+            {% else %}
+              <div>Form is Pending !!!</div>
+            {% endif %}
+
+             <div class="col-6">
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+    
+</body>
+</html>

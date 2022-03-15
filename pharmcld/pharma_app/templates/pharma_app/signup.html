@@ -1,0 +1,96 @@
+{% load static %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap-5.0.2-dist/css/bootstrap.min.css' %}"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+
+            margin: -1px;
+            font-family: Arial;
+        }
+
+        .Top{
+
+            font-weight: bolder;
+            color: White;
+            background-color: rgb(6, 132, 182);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size:30px;
+        }
+    </style>
+    <title>Signup Page</title>
+</head>
+<body>
+
+    <div class="container">
+
+
+
+
+        <div class="Top" align="center">
+
+              <div>SignUp Page</div>
+              <div>CloudPharma.com</div>
+
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-4">
+
+
+
+
+            </div><br>
+            <div>
+                 <div align="center">
+                   <form action="/pharma_app/regist/" method="post" class="form-control bg-primary">
+                   {% csrf_token %}
+                          <div>
+                              <div style="color:white; font-weight:bolder;">{{form.username.label}}</div>
+                              {{form.username}}
+                          </div><br>
+                           <div>
+                               <div style="color:white; font-weight:bolder;">{{form.email.label}}</div>
+                                {{form.email}}
+                           </div><br>
+                           <div>
+                               <div style="color:white; font-weight:bolder;">{{form.password1.label}}</div>
+                                {{form.password1}}
+                           </div><br>
+                           <div>
+                               <div style="color:white; font-weight:bolder;">{{form.password2.label}}</div>
+                                {{form.password2}}
+                           </div><br>
+
+                           <input type="submit" value="save" name="btn"/>
+                   </form><br>
+
+                 </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div>{{form.errors}}</div>
+
+
+        <div align="center"><a  style="color:white;" class=" btn btn-info " href="/pharma_app/logn">Visit Log in Page</a></div>
+
+
+
+
+
+    </div>
+    
+</body>
+</html>
